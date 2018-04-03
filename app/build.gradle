@@ -16,10 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -27,8 +31,11 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:${daggerVersion}"
     implementation 'com.jakewharton.timber:timber:4.7.0'
 
+    compileOnly "org.projectlombok:lombok:1.16.20"
+
     annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
     annotationProcessor "com.google.dagger:dagger-android-processor:${daggerVersion}"
+    annotationProcessor 'org.projectlombok:lombok:1.16.20'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
