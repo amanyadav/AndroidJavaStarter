@@ -18,6 +18,7 @@ allprojects {
     ext{
         daggerVersion='2.13'
         supportVersion='27.1.0'
+        lombokVersion='1.16.20'
     }
 }
 
