@@ -1,7 +1,6 @@
 package com.example.starter.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,10 @@ import com.example.starter.util.MyPreferenceManager;
 
 import javax.inject.Inject;
 
+import timber.log.Timber;
+
 public class MainFragment extends BaseFragment {
+
     @Inject
     MyPreferenceManager manager;
 
@@ -25,7 +27,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i("sdf1", manager.getSharedPrefs());
+        Timber.i(manager.getSharedPrefs());
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 }
